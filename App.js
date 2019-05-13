@@ -1,3 +1,4 @@
+import('./ReactotronConfig').then(() => console.log('Reactotron Configured'))
 import React from 'react';
 import {StyleSheet, View, Platform, StatusBar} from 'react-native';
 import {createBottomTabNavigator, createAppContainer, createStackNavigator} from 'react-navigation';
