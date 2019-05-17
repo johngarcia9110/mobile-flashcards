@@ -8,12 +8,13 @@ import reducer from './reducers';
 
 //styles
 import {FontAwesome, MaterialCommunityIcons} from '@expo/vector-icons';
-import { white, darkBlue, lighterBlue} from "./utils/colors";
+import { white, darkBlue, lighterBlue, green} from "./utils/global-styles";
 import { Constants } from 'expo';
 
 //components
 import DeckList from './components/DeckList';
 import NewDeck from './components/NewDeck';
+import NewCard from './components/NewCard';
 import QuizView from "./components/QuizView";
 import DeckView from "./components/DeckView";
 
@@ -35,7 +36,7 @@ const MainTabBar = createBottomTabNavigator({
 },{
     initialRouteName: 'DeckList',
     navigationOptions: {
-      header: null
+        title : 'Your Decks',
     },
     tabBarOptions: {
         activeTintColor: white,
@@ -60,8 +61,41 @@ const MainStackNavigator = createStackNavigator({
         screen: QuizView,
         navigationOptions:{
             headerTintColor: white,
+            headerForceInset: { top: 'never', bottom: 'never'},
             headerStyle: {
                 backgroundColor: darkBlue,
+                height: 80
+            }
+        }
+    },
+    DeckView: {
+        screen: DeckView,
+        navigationOptions:{
+            headerTintColor: white,
+            title: 'Your Deck',
+            headerForceInset: { top: 'never', bottom: 'never'},
+            headerStyle: {
+                backgroundColor: lighterBlue
+            }
+        }
+    },
+    NewCard: {
+        screen: NewCard,
+        navigationOptions:{
+            headerTintColor: white,
+            headerForceInset: { top: 'never', bottom: 'never'},
+            headerStyle: {
+                backgroundColor: green,
+            }
+        }
+    },
+    QuizView: {
+        screen: QuizView,
+        navigationOptions:{
+            headerTintColor: white,
+            headerForceInset: { top: 'never', bottom: 'never'},
+            headerStyle: {
+                backgroundColor: green
             }
         }
     }

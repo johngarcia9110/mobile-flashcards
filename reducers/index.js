@@ -3,18 +3,21 @@ import { RECEIVE_DECKS, ADD_DECK, ADD_CARD } from "../actions";
 export default function entries (state = {}, action){
     switch(action.type){
         case RECEIVE_DECKS :
-            console.log('action receive decks: ', action);
             return {
                 ...state,
                 ...action.decks
             };
         case ADD_DECK :
+            //console.log('action receive decks: ', {...state, ...action.deck});
             return {
                 ...state,
-                ...action.deck
+                [action.deck.deckId] : action.deck.deckObj
             };
         case ADD_CARD :
-            return state;
+            return {
+                ...state,
+                [action.deckId] : action.deck
+            };
         default :
             return state;
     }
