@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import CardFlip from 'react-native-card-flip';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import TextButton from './TextButton';
-import {white, vibrantGreen, lighterBlue, red, globalStyles, darkBlue} from "../utils/global-styles";
+import {white, vibrantGreen, lighterBlue, red, globalStyles, green, darkBlue} from "../utils/global-styles";
 
 class QuizView extends Component{
     state = {
@@ -13,6 +13,15 @@ class QuizView extends Component{
         totalAnswered : 0,
         currentCard: 0,
         showBackText: true
+    }
+    handleReset = () => {
+        this.setState({
+            answeredCorrectly : 0,
+            answeredIncorrectly : 0,
+            totalAnswered : 0,
+            currentCard: 0,
+            showBackText: true
+        })
     }
     handleNextCard = (answerIsCorrect) => {
         console.log(this.state);
@@ -65,6 +74,16 @@ class QuizView extends Component{
                 <Text style={{color: white, fontSize: 40, textAlign: 'center'}}>
                     You got {this.state.answeredCorrectly} out of {this.state.totalAnswered} questions correct!
                 </Text>
+                <View style={styles.controls}>
+                    <TextButton
+                        style={{flexGrow: 1, flexShrink: 1, backgroundColor: green, marginRight: 10}}
+                        onPress={() => this.handleReset()}
+                    >Restart</TextButton>
+                    <TextButton
+                        style={{flexGrow: 1, flexShrink: 1, backgroundColor: darkBlue, marginLeft: 10 }}
+                        onPress={() => this.props.navigation.goBack()}
+                    >Back to Deck</TextButton>
+                </View>
             </View>
         )
     }

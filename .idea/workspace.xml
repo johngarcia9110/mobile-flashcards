@@ -2,20 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dee280ab-a267-4b48-be6d-8666e7aeb2e0" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/components/TextButton.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/actions/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/actions/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/DeckList.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/DeckList.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/DeckView.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/DeckView.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/NewCard.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/NewCard.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/NewDeck.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/NewDeck.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/QuizView.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/QuizView.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/reducers/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/reducers/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/colors.js" beforeDir="false" afterPath="$PROJECT_DIR$/utils/global-styles.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/data.js" beforeDir="false" afterPath="$PROJECT_DIR$/utils/data.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -62,11 +49,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="App.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="App.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/App.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="664">
-              <caret line="47" column="20" lean-forward="true" selection-start-line="47" selection-start-column="20" selection-end-line="47" selection-end-column="20" />
+            <state relative-caret-position="333">
+              <caret line="33" column="9" lean-forward="true" selection-start-line="33" selection-start-column="9" selection-end-line="33" selection-end-column="9" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
                 <element signature="e#317#388#0" expanded="true" />
@@ -109,11 +96,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="QuizView.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="QuizView.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/components/QuizView.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="674">
-              <caret line="63" column="103" selection-start-line="63" selection-start-column="103" selection-end-line="63" selection-end-column="103" />
+            <state relative-caret-position="288">
+              <caret line="8" column="13" lean-forward="true" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
               </folding>
@@ -166,9 +153,9 @@
         <option value="$PROJECT_DIR$/components/NewCard.js" />
         <option value="$PROJECT_DIR$/components/DeckView.js" />
         <option value="$PROJECT_DIR$/components/DeckList.js" />
-        <option value="$PROJECT_DIR$/components/QuizView.js" />
         <option value="$PROJECT_DIR$/utils/data.js" />
         <option value="$PROJECT_DIR$/App.js" />
+        <option value="$PROJECT_DIR$/components/QuizView.js" />
       </list>
     </option>
   </component>
@@ -266,15 +253,16 @@
       <option name="presentableId" value="Default" />
       <updated>1557696171090</updated>
       <workItem from="1557696172402" duration="5564000" />
-      <workItem from="1557764458067" duration="52978000" />
+      <workItem from="1557764458067" duration="54069000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="58542000" />
+    <option name="totallyTimeSpent" value="59633000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="350" y="23" width="2206" height="1316" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.13455378" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -283,7 +271,7 @@
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.3297785" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info active="true" anchor="bottom" id="Terminal" internal_type="SLIDING" order="7" type="SLIDING" visible="true" weight="0.25685784" />
+      <window_info anchor="bottom" id="Terminal" internal_type="SLIDING" order="7" type="SLIDING" weight="0.25685784" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -494,16 +482,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/components/QuizView.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="674">
-          <caret line="63" column="103" selection-start-line="63" selection-start-column="103" selection-end-line="63" selection-end-column="103" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/components/NewCard.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-245">
@@ -526,12 +504,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/App.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="664">
-          <caret line="47" column="20" lean-forward="true" selection-start-line="47" selection-start-column="20" selection-end-line="47" selection-end-column="20" />
+        <state relative-caret-position="333">
+          <caret line="33" column="9" lean-forward="true" selection-start-line="33" selection-start-column="9" selection-end-line="33" selection-end-column="9" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
             <element signature="e#317#388#0" expanded="true" />
             <element signature="e#499#544#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/components/QuizView.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="8" column="13" lean-forward="true" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
           </folding>
         </state>
       </provider>
