@@ -25,43 +25,46 @@ class DeckView extends Component{
         const { decks } = this.props;
         const { deckId } = this.props.navigation.state.params;
         return(
-            <View style={[globalStyles.containerMain, {justifyContent: 'center'}]}>
-                <View style={[globalStyles.card, {padding: 15}]}>
-                    <Text style={[globalStyles.cardTitleMain, {marginBottom: 10, textAlign: 'center'}]}>{decks[deckId].name}</Text>
-                    <Text style={{textAlign: 'center', marginBottom: 15}}>{decks[deckId].cards.length} cards</Text>
-                    {decks[deckId].cards.length > 0 && (
+            <View style={{flex: 1}}>
+                <View style={[globalStyles.containerMain, {justifyContent: 'center'}]}>
+                    <View style={[globalStyles.card, {padding: 15}]}>
+                        <Text style={[globalStyles.cardTitleMain, {marginBottom: 10, textAlign: 'center'}]}>{decks[deckId].name}</Text>
+                        <Text style={{textAlign: 'center', marginBottom: 15}}>{decks[deckId].cards.length} cards</Text>
+                        {decks[deckId].cards.length > 0 && (
+                            <TextButton
+                                onPress={()=> this.props.navigation.navigate('QuizView', {cards: decks[deckId].cards})}
+                                style={{backgroundColor: green, marginBottom: 15}}
+                            >
+                                Start Quiz
+                            </TextButton>
+                        )}
                         <TextButton
-                            onPress={()=> this.props.navigation.navigate('QuizView', {cards: decks[deckId].cards})}
-                            style={{backgroundColor: green, marginBottom: 15}}
+                            onPress={()=> this.props.navigation.navigate('NewCard', {deckId})}
+                            style={{backgroundColor: lightGray}}
+                            textColor={gray}
                         >
-                            Start Quiz
+                            Add Card
                         </TextButton>
-                    )}
-                    <TextButton
-                        onPress={()=> this.props.navigation.navigate('NewCard', {deckId})}
-                        style={{backgroundColor: lightGray}}
-                        textColor={gray}
-                    >
-                        Add Card
-                    </TextButton>
+                    </View>
+                    <View style={{paddingLeft:10, paddingRight: 10,}}>
+                        <TouchableOpacity style={{padding: 10, backgroundColor: lightGray, borderBottomRightRadius: 6, borderBottomLeftRadius: 6, marginBottom: 15}} onPress={() => this.toggleShowCards() }>
+                            <Text style={{color: gray, textAlign: 'center'}}>{this.state.showCards ? "Hide" : "Show"} Cards</Text>
+                        </TouchableOpacity>
+                    </View>
                 </View>
-                <View style={{paddingLeft:10, paddingRight: 10,}}>
-                    <TouchableOpacity style={{padding: 10, backgroundColor: lightGray, borderBottomRightRadius: 6, borderBottomLeftRadius: 6, marginBottom: 15}} onPress={() => this.toggleShowCards() }>
-                        <Text style={{color: gray, textAlign: 'center'}}>Show Cards</Text>
-                    </TouchableOpacity>
-                </View>
-
                 {this.state.showCards && (
-                    <View style={{flex: .5, backgroundColor: darkBlue, padding: 10}}>
+                    <View style={{flex: 1, backgroundColor: darkBlue}}>
                         <FlatList
                             data={decks[deckId].cards}
                             renderItem={this.renderItem}
                             ListEmptyComponent={()=><Text>No Cards</Text>}
                             keyExtractor={(cards, index)=>index.toString()}
+                            style={{padding: 10}}
                         />
                     </View>
                 )}
             </View>
+
         )
     }
 }
@@ -71,9 +74,3 @@ function mapStateToProps (decks) {
     }
 }
 export default connect(mapStateToProps)(DeckView);
-
-//INSTRUCTIONS TODO: REMOVE THIS AFTER DONE CODING
-// displays the title of the Deck
-// displays the number of cards in the deck
-// displays an option to start a quiz on this specific deck
-// An option to add a new question to the deck

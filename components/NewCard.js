@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { View, Text, TextInput, TouchableOpacity } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, KeyboardAvoidingView } from 'react-native';
 import { addCard } from "../actions";
 import { createNewCard } from "../utils/data";
-
 import { globalStyles, lighterBlue } from "../utils/global-styles";
 
 
@@ -42,15 +41,11 @@ class NewCard extends Component{
                 .then(() => this.resetState())
                 .then(() => navigation.navigate('DeckView',{deckId}));
 
-            // formatNewDeck(this.state.deckName, order)
-            //     .then((deck) => dispatch(addDeck(deck)))
-            //     .then((action) => navigation.navigate('DeckView',{deckId: action.deck.deckId}))
-            //     .then(() => this.resetState())
         }
     }
     render(){
         return(
-            <View style={[{flex: 1, backgroundColor: lighterBlue, justifyContent: 'center', padding: 15}]}>
+            <KeyboardAvoidingView style={[{flex: 1, backgroundColor: lighterBlue, justifyContent: 'center', padding: 15}]} behavior="padding" enabled>
                 <View style={[globalStyles.card, {justifySelf: 'center', padding: 15}]}>
                     <Text style={[globalStyles.cardTitleMain, {textAlign: 'center', marginBottom: 15}]}>NewCard</Text>
                     <TextInput
@@ -79,7 +74,7 @@ class NewCard extends Component{
                     </TouchableOpacity>
                 </View>
 
-            </View>
+            </KeyboardAvoidingView>
         )
     }
 }
@@ -91,8 +86,3 @@ function mapStateToProps (decks) {
 }
 
 export default connect(mapStateToProps)(NewCard);
-
-//INSTRUCTIONS TODO: REMOVE THIS AFTER DONE CODING
-// An option to enter in the question
-// An option to enter in the answer
-// An option to submit the new question

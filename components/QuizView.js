@@ -2,8 +2,11 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import CardFlip from 'react-native-card-flip';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { clearLocalNotification } from "../utils/notifications";
+
+import {white, vibrantGreen, lighterBlue, red, gray, green, darkBlue} from "../utils/global-styles";
+
 import TextButton from './TextButton';
-import {white, vibrantGreen, lighterBlue, red, globalStyles, green, darkBlue} from "../utils/global-styles";
 
 class QuizView extends Component{
     state = {
@@ -24,7 +27,6 @@ class QuizView extends Component{
         })
     }
     handleNextCard = (answerIsCorrect) => {
-        console.log(this.state);
         if(this.card.state.side !== 0){
             this.card.flip();
         }
@@ -60,18 +62,26 @@ class QuizView extends Component{
             <View style={{flex: 1}}>
                 <Text style={{color: white, textAlign: 'center', padding: 10}}>Card {this.state.currentCard + 1} of {this.state.cards.length} </Text>
                 <CardFlip style={styles.cardContainer} ref={(card) => this.card = card} duration={400} onFlipStart={(index) => this.hideBackText(index)} onFlipEnd={(index)=>this.showBackText(index)}>
-                    <TouchableOpacity style={styles.card} onPress={() => this.card.flip()} ><Text style={styles.cardText}>{this.state.cards[this.state.currentCard].question}</Text></TouchableOpacity>
-                    <TouchableOpacity style={styles.card} onPress={() => this.card.flip()} ><Text style={styles.cardText}>{this.state.showBackText ? this.state.cards[this.state.currentCard].answer : ""}</Text></TouchableOpacity>
+                    <TouchableOpacity style={styles.card} onPress={() => this.card.flip()} >
+                        <Text style={styles.cardLeadText}>Question:</Text>
+                        <Text style={styles.cardText}>{this.state.cards[this.state.currentCard].question}</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.card} onPress={() => this.card.flip()} >
+                        <Text style={styles.cardLeadText}>Answer:</Text>
+                        <Text style={styles.cardText}>{this.state.showBackText ? this.state.cards[this.state.currentCard].answer : ""}</Text>
+                    </TouchableOpacity>
                 </CardFlip>
             </View>
 
         )
     }
     displayResults = () => {
+        // the user has completed a quiz for today, we can remove the quiz reminder notification
+        clearLocalNotification();
         return(
             <View style={[{justifyContent: 'center', flex: 1}]}>
                 <Text style={{color: vibrantGreen, fontSize: 80, textAlign: 'center', fontWeight: 'bold'}}>{(this.state.answeredCorrectly / this.state.totalAnswered)  * 100}%</Text>
-                <Text style={{color: white, fontSize: 40, textAlign: 'center'}}>
+                <Text style={{color: white, fontSize: 40, textAlign: 'center', marginBottom: 30}}>
                     You got {this.state.answeredCorrectly} out of {this.state.totalAnswered} questions correct!
                 </Text>
                 <View style={styles.controls}>
@@ -123,6 +133,11 @@ const styles = StyleSheet.create({
         padding: 15,
         justifyContent: 'center'
     },
+    cardLeadText : {
+        color: gray,
+        padding: 10,
+        textAlign: 'center'
+    },
     cardText : {
         fontSize: 20,
         textAlign: 'center',
@@ -141,11 +156,3 @@ function mapStateToProps (state) {
     return state
 }
 export default connect(mapStateToProps)(QuizView);
-
-//INSTRUCTIONS TODO: REMOVE THIS AFTER DONE CODING
-// displays a card question
-// an option to view the answer (flips the card)
-// a "Correct" button
-// an "Incorrect" button
-// the number of cards left in the quiz
-// Displays the percentage correct once the quiz is complete

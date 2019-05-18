@@ -24,8 +24,8 @@ export const formatNewDeck = (name, order) => new Promise(function(res){
             name,
             order,
             cards: []
-        }
-        const deckId = generateRandomID()
+        };
+        const deckId = generateRandomID();
     res(AsyncStorage.getItem(DECKS_STORAGE_KEY)
         .then((decks) => {
             let deckList = JSON.parse(decks);
@@ -54,12 +54,16 @@ function createDummyData (numDecks) {
 }
 
 function setDummyData (numDecks) {
-    var data = createDummyData(numDecks);
+    const data = createDummyData(numDecks);
     AsyncStorage.setItem(DECKS_STORAGE_KEY, JSON.stringify(data));
     return data;
 }
 
 export function fetchDecks (numDecks) {
-    setDummyData(numDecks);
-    return AsyncStorage.getItem(DECKS_STORAGE_KEY);
+    const data = AsyncStorage.getItem(DECKS_STORAGE_KEY);
+    if(data === null){
+        return setDummyData(numDecks);
+    }else{
+        return data;
+    }
 }

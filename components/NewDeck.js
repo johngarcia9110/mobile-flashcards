@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { View, Text, TextInput, TouchableOpacity } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, KeyboardAvoidingView } from 'react-native';
 import { addDeck } from "../actions";
 import { formatNewDeck } from "../utils/data";
-
 import { globalStyles, lighterBlue } from "../utils/global-styles";
 
 
@@ -39,14 +38,10 @@ class NewDeck extends Component{
                 .then((action) => navigation.navigate('DeckView',{deckId: action.deck.deckId}))
                 .then(() => this.resetState())
         }
-
-        //this.props.navigation.navigate('DeckView', {deckId:})
     }
     render(){
-        console.log(this.state);
-        console.log(this.props);
         return(
-            <View style={[{flex: 1, backgroundColor: lighterBlue, justifyContent: 'center', padding: 15}]}>
+            <KeyboardAvoidingView style={[{flex: 1, backgroundColor: lighterBlue, justifyContent: 'center', padding: 15}]} behavior="padding" enabled>
                 <View style={[globalStyles.card, {justifySelf: 'center', padding: 15}]}>
                     <Text style={[globalStyles.cardTitleMain, {textAlign: 'center', marginBottom: 15}]}>NewDeck</Text>
                     <TextInput
@@ -69,7 +64,7 @@ class NewDeck extends Component{
                     </TouchableOpacity>
                 </View>
 
-            </View>
+            </KeyboardAvoidingView>
         )
     }
 }
@@ -81,7 +76,3 @@ function mapStateToProps (decks) {
 }
 
 export default connect(mapStateToProps)(NewDeck);
-
-//INSTRUCTIONS TODO: REMOVE THIS AFTER DONE CODING
-// An option to enter in the title for the new deck
-// An option to submit the new deck title

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Text, TouchableOpacity, StyleSheet } from 'react-native';
-import { globalStyles, white, green, lightGray } from "../utils/global-styles";
+import { white } from "../utils/global-styles";
 
 function TextButton ({children, onPress, style = {}, textColor = white}) {
         return(

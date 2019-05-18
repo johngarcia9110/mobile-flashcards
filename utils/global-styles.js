@@ -2,13 +2,13 @@ import React from 'react';
 import { StyleSheet } from 'react-native';
 
 export const white = '#fff';
-export const darkBlue = '#0C084C';
+export const darkBlue = '#054A65';
 export const lighterBlue = '#096386';
 export const green = '#00B7A8';
 export const vibrantGreen = '#16c693';
 export const lightGray = '#ececec';
 export const gray = '#797979';
-export const red = '#ae342b';
+export const red = '#D11A51';
 
 export const globalStyles = StyleSheet.create({
     containerMain: {
@@ -30,7 +30,8 @@ export const globalStyles = StyleSheet.create({
         borderBottomColor: lightGray,
         borderStyle: 'solid',
         fontSize: 20,
-        color: gray
+        color: gray,
+        padding: 10
     },
     formError: {
         backgroundColor: red,
