@@ -3,9 +3,9 @@ import { connect } from 'react-redux';
 import {fetchDecks} from '../utils/data';
 import {receiveDecks} from '../actions';
 
-import { View, Text, StyleSheet, FlatList } from 'react-native';
+import { View, Text, StyleSheet, FlatList, TouchableOpacity } from 'react-native';
 
-import { green, lighterBlue, white, darkBlue } from "../utils/colors";
+import { green, lighterBlue, white, darkBlue } from "../utils/global-styles";
 
 class DeckList extends Component{
 
@@ -19,25 +19,24 @@ class DeckList extends Component{
     renderItem = ({ item }) => {
         const { decks } = this.props
         return (
-            <View style={styles.deckStyles}>
+            <TouchableOpacity style={styles.deckStyles} onPress={()=> this.props.navigation.navigate('DeckView', {deckId: item})}>
                 <Text style={{paddingLeft: 10, paddingTop: 10, paddingBottom: 10, color: darkBlue, fontWeight: 'bold', fontSize: 18}}>{decks[item].name}</Text>
                 <View style={{padding: 10, textAlign:'center'}}>
                     <Text style={{textAlign: 'center', color: darkBlue, fontWeight: 'bold', fontSize: 16}}>{decks[item].cards.length}</Text>
                     <Text style={{textAlign: 'center', color: darkBlue, }}>Cards</Text>
                 </View>
-            </View>
+            </TouchableOpacity>
         )
     }
 
     render(){
-        console.log('Decklist Props', this.props);
-        const { decks } = this.props;
+        const { decks, deckIds } = this.props;
         return(
             <View style={{flex: 1, backgroundColor: lighterBlue, flexDirection: 'column'}}>
                 <Text style={{ backgroundColor: green, padding: 20, color: white, fontSize: 18, fontWeight: 'bold', textAlign: 'center'}}>Your Decks</Text>
                 <View style={{padding: 10, flex: 1}}>
                     <FlatList
-                        data={Object.keys(decks)}
+                        data={deckIds}
                         renderItem={this.renderItem}
                         ListEmptyComponent={()=><Text>No items</Text>}
                         keyExtractor={(deck, index)=>index.toString()}
@@ -63,7 +62,8 @@ const styles = StyleSheet.create({
 
 function mapStateToProps (decks) {
     return {
-        decks
+        decks,
+        deckIds: Object.keys(decks).sort((a, b) => decks[b].order - decks[a].order)
     }
 }
 
